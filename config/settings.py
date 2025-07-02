@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Apps de terceros
     'rest_framework',
+    'django_filters',
     # Mis Apps locales
     'tasks.apps.TasksConfig',
     'users.apps.UsersConfig',
@@ -135,5 +136,8 @@ REST_FRAMEWORK = {
     # Requerir que los usuarios estén autenticados por defecto.
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
-    ]
+    ],
+    'EXCEPTION_HANDLER': 'config.exception_handler.custom_exception_handler',
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
 }
