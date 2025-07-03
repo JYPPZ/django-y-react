@@ -26,8 +26,8 @@ Sigue estos pasos para poner en marcha el proyecto en un entorno de desarrollo l
 ### 1. Clonar el Repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/tu-repositorio.git
-cd tu-repositorio
+git clone https://github.com/JYPPZ/django-y-react.git
+cd django-y-react
 ```
 
 ### 2. Crear y Activar un Entorno Virtual
