@@ -87,7 +87,6 @@ El servidor estará disponible en `http://127.0.0.1:8000/`.
 La API está documentada y se puede probar interactivamente a través de Swagger UI.
 
 *   **Documentación Swagger UI:** `http://127.0.0.1:8000/api/schema/swagger-ui/`
-*   **Documentación ReDoc:** `http://127.0.0.1:8000/api/schema/redoc/`
 
 ### Flujo de Autenticación
 
