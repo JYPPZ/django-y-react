@@ -18,11 +18,17 @@ class TaskViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         """
-        Esta vista debe devolver una lista de todas las tareas
-        para el usuario actualmente autenticado, optimizada.
+        Define dinámicamente el queryset basado en la acción.
+        - Para 'list', solo devuelve las tareas del usuario.
+        - Para acciones de detalle, devuelve todas las tareas para que los permisos puedan actuar.
         """
-        user = self.request.user
-        return user.tasks.select_related('user').all().order_by('-created_at') # Evitar N+1
+        if self.action == 'list':
+            # Para la lista, filtramos por usuario y optimizamos.
+            return Task.objects.filter(user=self.request.user).select_related('user').order_by('-created_at') # evitar N+1
+        
+        # Para 'retrieve', 'update', 'destroy', etc., empezamos con todas las tareas,
+        # para verificar si el request.user es el dueño del objeto encontrado.
+        return Task.objects.all().select_related('user')
 
     def perform_create(self, serializer):
         """

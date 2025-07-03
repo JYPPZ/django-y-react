@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # Apps de terceros
     'rest_framework',
     'django_filters',
+    'drf_spectacular',
     # Mis Apps locales
     'tasks.apps.TasksConfig',
     'users.apps.UsersConfig',
@@ -139,5 +140,15 @@ REST_FRAMEWORK = {
     ],
     'EXCEPTION_HANDLER': 'config.exception_handler.custom_exception_handler',
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10
+    'PAGE_SIZE': 10,
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema'
+}
+
+# documentación
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'API de To-Do List',
+    'DESCRIPTION': 'Una API para la gestión de tareas personales.',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    'CONTACT': {'name': 'Juan Esteban Yepez', 'email': 'juanesyepezr@gmail.com'},
 }

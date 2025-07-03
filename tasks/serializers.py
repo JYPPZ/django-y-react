@@ -18,8 +18,8 @@ class TaskSerializer(serializers.ModelSerializer):
     def validate_title(self, value):
         """
         Añade una validación personalizada para el campo 'title'.
-        Asegura que el título tenga al menos 5 caracteres.
+        Asegura que el título tenga al menos 3 caracteres.
         """
-        if len(value) < 5:
-            raise serializers.ValidationError("El título debe tener al menos 5 caracteres.")
+        if len(value) < 3:
+            raise serializers.ValidationError("El título debe tener al menos 3 caracteres.")
         return value
